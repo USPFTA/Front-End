@@ -8,28 +8,32 @@
 		function ($scope, UserFactory, $rootScope, $location){
 
 			// Get User
+			var user = UserFactory.user();
+			if(user){
+				$location.path('/profile');
+			}
 
 			// Register User
 			$scope.registerUser = function (userInfo){
-				if($scope.user.password !== $scope.user.password_confirmation){
-					alert('passwords have to match');
-				} else {
-					UserFactory.register(userInfo);
-				}
+					UserFactory.register({ user: userInfo});
 			};
 
 			// Login User
 			$scope.loginUser = function (userInfo){
-				UserFactory.login(userInfo);
+				UserFactory.login({user: userInfo});
 			};
 
 			// Routing
 			$rootScope.$on('user:loggedin', function (){
-				$location.path('/');
+				$location.path('/profile');
 			});
 
 			$rootScope.$on('user:loggedout', function (){
 				$location.path('/');
+			});
+
+			$rootScope.$on('user:registered', function (){
+				$location.path('/login');
 			});
 
 		}

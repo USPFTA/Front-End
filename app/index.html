@@ -21,10 +21,11 @@
     <!-- build:js scripts/vendor/modernizr.js -->
     <script src="../bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
+
   </head>
   <body>
 
-    <nav class="top-bar" data-topbar role="navigation">
+    <nav class="top-bar" data-topbar role="navigation" ng-controller="NavController">
       <ul class="title-area">
         <li class="name">
           <h1><a href="#/">United States Professional Flag Tag Association</a></h1>
@@ -34,16 +35,16 @@
       <section class="top-bar-section">
         <!-- Right Nav Section -->
         <ul class="right">
-          <li class="has-dropdown">
-            <a href="#">Right Button Dropdown</a>
-            <ul class="dropdown">
-              <li><a href="#">First link in dropdown</a></li>
-              <li class="active"><a href="#">Active link in dropdown</a></li>
-            </ul>
-          </li>
+          <li ng-hide="loggedin"><a href="#/login">Login</a></li>
+          <li ng-hide="loggedin"><a href="#/register">Register</a></li>
+          <li ng-show="loggedin"><a ng-click="logout()" href="#/">Logout</a></li>
+        </ul>
+        <ul class="left">
+          <li ng-show="loggedin"><a href="#/profile">Profile</a></li>
         </ul>
       </section>
     </nav>
+
     <div class="container" ng-view></div>
 
 
@@ -55,13 +56,19 @@
     <script src="../bower_components/angular/angular.min.js"></script>
     <script src="../bower_components/angular-route/angular-route.min.js"></script>
     <script src="../bower_components/angular-cookies/angular-cookies.min.js"></script>
+    <script src="../bower_components/angular-google-maps/dist/angular-google-maps.min.js"></script>
+    <script src="../bower_components/lodash/dist/lodash.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js scripts/main.js -->
         <script src="scripts/main.js"></script>
 
+        <script src="scripts/nav/nav.controller.js"></script>
+
         <script src="scripts/game/game.controller.js"></script>
+        <script src="scripts/game/game.factory.js"></script>
+        <script src="scripts/game/game.map.js"></script>
 
         <script src="scripts/user/user.controller.js"></script>
         <script src="scripts/user/user.factory.js"></script>

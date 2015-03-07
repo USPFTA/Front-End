@@ -3,6 +3,14 @@
 	<form ng-submit="registerUser(user)">
 		<div class="row collapse">
 	    <div class="small-3 large-2 columns">
+	      <span class="prefix">Create Username</span>
+	    </div>
+	    <div class="small-9 large-10 columns">
+	      <input ng-model="user.username" type="text" placeholder="flagTagger">
+	    </div>
+  	</div>
+		<div class="row collapse">
+	    <div class="small-3 large-2 columns">
 	      <span class="prefix">Email</span>
 	    </div>
 	    <div class="small-9 large-10 columns">
@@ -17,22 +25,14 @@
 	      <input ng-model="user.password" type="password" placeholder="flagtag1234">
 	    </div>
   	</div>
-  	<div class="row collapse">
+<!--   	<div class="row collapse">
 	    <div class="small-3 large-2 columns">
 	      <span class="prefix">Confirm Pass</span>
 	    </div>
 	    <div class="small-9 large-10 columns">
-	      <input ng-model="user.password_confirmation" type="password" placeholder="flagtag1234">
+	      <input ng-model="password_confirmation" type="password" placeholder="flagtag1234">
 	    </div>
-  	</div>
-  	<div class="row collapse">
-	    <div class="small-3 large-2 columns">
-	      <span class="prefix">Address</span>
-	    </div>
-	    <div class="small-9 large-10 columns">
-	      <input type="text" placeholder="6456 Dwelling Street Atlanta, GA 30319">
-	    </div>
-  	</div>
+  	</div> -->
 		<button>Register</button>
 	</form>
 	<small>Already have an account? <a href="#/login">Login</a></small>

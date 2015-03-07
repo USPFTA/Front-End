@@ -7,16 +7,6 @@ body {
   background: #fafafa;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333;
-}
- // Bourbon & Neat
-@import '../../bower_components/bourbon/dist/bourbon';
-@import '../../bower_components/neat/app/assets/stylesheets/neat';
-
-// Custom Styles
-body {
-  background: #fafafa;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #333;
   font-size: 10px;
 }
 button{
@@ -35,6 +25,20 @@ button:hover{
 .top-bar .name a{
   color: black;
 }
+.name{
+  a{
+    background-color: RGBA(0, 164, 0, 1);
+  }
+}
+
+// Map
+.map { 
+  width: 75%;
+  border: 0.3rem double green;
+  margin: 0 auto;
+  margin-top: 3rem
+}
+.angular-google-map-container { height: 400px; }
 
 // Main Welcome View
 .welcome{
@@ -81,3 +85,22 @@ button:hover{
   }
 }
 
+// Profile
+.profile{
+  a{
+    color:white;
+  }
+  button{
+  margin-left: 40%;
+  }
+}
+
+// Game View
+.createGame{
+  h1{
+    text-align: center;
+  }
+  form{
+    margin-top:2rem;
+  }
+}

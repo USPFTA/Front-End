@@ -2,18 +2,18 @@
 
 	'use strict';
 
-	angular.module('FlagTag', ['ngRoute', 'ngCookies'])
+	angular.module('FlagTag', ['ngRoute', 'ngCookies', 'uiGmapgoogle-maps'])
 
-	.constant('heroku', {
-		url: 'https://tiy-hackathon.herokuapp.com/',
-		config: {
+	.constant('HEROKU', {
+		URL: 'https://tiy-hackathon.herokuapp.com/',
+		CONFIG: {
 			headers: {
 				'Content-Type': 'application/json'
 			}
 		}
 	})
 
-	.config( function ($routeProvider){
+	.config( function ($routeProvider, uiGmapGoogleMapApiProvider){
 
 		$routeProvider.when('/', {
 			templateUrl: 'scripts/welcome/welcome.tpl.html'
@@ -34,14 +34,30 @@
 			controller: 'GameController'
 		})
 
+		.when('/game', {
+			templateUrl: 'scripts/game/game.tpl.html',
+			controller: 'GameController'
+		})
+
+		.when('/create-game', {
+			templateUrl: 'scripts/game/create-game.tpl.html',
+			controller: 'GameController'
+		})
+
 		.otherwise({
 			reirectTo: '/'
 		});
 
+		// Google Maps
+		uiGmapGoogleMapApiProvider.configure({
+        v: '3.17',
+        libraries: 'weather,geometry,visualization'
+    });
+
 	})
 
-	.run([ '$rootScope', 'UserFactory', 'heroku',
-		function ($rootScope, UserFactory, heroku){
+	.run([ '$rootScope', 'UserFactory', 'HEROKU',
+		function ($rootScope, UserFactory, HEROKU){
 			$rootScope.$on('$routeChangeStart', function (){
 
 			});

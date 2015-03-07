@@ -1,0 +1,24 @@
+<div class="createGame">
+	<h1>Where do you want to play?</h1>
+	<div class="map">
+		<ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
+	</div>
+	<form ng-submit="createGame(game)">
+		<div class="row collapse">
+	    <div class="small-3 large-2 columns">
+	      <span class="prefix">Select Longitude</span>
+	    </div>
+	    <div class="small-9 large-10 columns">
+	      <input ng-model="user.username" type="text" placeholder="flagTagger">
+	    </div>
+  	</div>
+		<div class="row collapse">
+	    <div class="small-3 large-2 columns">
+	      <span class="prefix">Select Latitude</span>
+	    </div>
+	    <div class="small-9 large-10 columns">
+	      <input ng-model="user.email" type="text" placeholder="flagtag@gmail.com">
+	    </div>
+  	</div>
+	</form>
+</div>
