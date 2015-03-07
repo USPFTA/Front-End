@@ -1,0 +1,23 @@
+<div class="login">
+	<h1>Welcome Back!</h1>
+	<form ng-submit="loginUser(user)">
+		<div class="row collapse">
+	    <div class="small-3 large-2 columns">
+	      <span class="prefix">Email</span>
+	    </div>
+	    <div class="small-9 large-10 columns">
+	      <input ng-model="user.email" type="text" placeholder="flagtag@gmail.com">
+	    </div>
+  	</div>
+  	<div class="row collapse">
+	    <div class="small-3 large-2 columns">
+	      <span class="prefix">Password</span>
+	    </div>
+	    <div class="small-9 large-10 columns">
+	      <input ng-model="user.password" type="text" placeholder="flagtag1234">
+	    </div>
+  	</div>
+		<button>Login</button>
+	</form>
+	<small>Don't have an account with us? Click <a href="#/register">here</a> to register!</small>
+</div>

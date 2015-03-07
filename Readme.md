@@ -1,7 +1,7 @@
 # United States Professional Flag Tag Association
 
 ## Description
-	* A location based game 'flag tag' game to be played with others to be playing with your iOS mobile device.
+* A location based game 'flag tag' game to be played with others to be playing with your iOS mobile device.
 
 ## Want this game?
 	* Clone this repo
