@@ -10,8 +10,10 @@
 			// Get User
 			var user = UserFactory.user();
 			if(user){
-				$location.path('/profile');
+				// console.log(user.authentication_token);
 			}
+
+			var getStatus = UserFactory.status();
 
 			// Register User
 			$scope.registerUser = function (userInfo){

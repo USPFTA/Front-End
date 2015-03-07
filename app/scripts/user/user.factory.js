@@ -16,7 +16,8 @@
 			var checkLoginStatus = function  () {
 				var user = currentUser();
 				if(user){
-					// PARSE.CONFIG.headers['X-Parse-Session-Token'] = user.;
+					// console.log(user.user.authentication_token);
+					HEROKU.CONFIG.headers['authentication-token'] = user.authentication_token;
 				}
 			};
 
@@ -33,7 +34,7 @@
 			var loginUser = function (userInfo) {
 					$http.post(HEROKU.URL + 'users/sign_in', userInfo, HEROKU.CONFIG)
 						.success( function (response){
-							console.log(response);
+							// console.log(response);
 							$cookieStore.put('FTCookie', response.user);
 							$rootScope.$broadcast('user:loggedin');
 					}
@@ -52,7 +53,7 @@
 				login: loginUser,
 				logout: logoutUser,
 				user: currentUser,
-				status: registerUser
+				status: checkLoginStatus
 			};
 
 		}

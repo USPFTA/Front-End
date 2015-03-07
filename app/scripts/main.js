@@ -44,6 +44,11 @@
 			controller: 'GameController'
 		})
 
+		.when('/game/invite', {
+			templateUrl: 'scripts/game/invite.tpl.html',
+			controller: 'GameController'
+		})
+
 		.otherwise({
 			reirectTo: '/'
 		});
