@@ -5,8 +5,8 @@
 
 ## Want this game?
 	* Clone this repo
-	* Run ```bower install```
-	* Run ```npm install```
+	* Run bower install
+	* Run npm install
 
 ## Libraries Resources Used
   * Angular
