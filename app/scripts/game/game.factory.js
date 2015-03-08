@@ -14,7 +14,9 @@
 			var createGame = function (gameInfo){
 				$http.post(HEROKU.URL + 'games/new', gameInfo, HEROKU.CONFIG)
 					.success( function (response){
-						console.log(response);
+						console.log(response.game.id);
+						$rootScope.gameId = response.game.id;
+						$rootScope.$broadcast('game:created');
 					}
 				);
 			};
@@ -32,7 +34,7 @@
 
 			//Invite Users From List
 			var inviteUsers = function (invObj){
-				$http.post(HEROKU.URL + 'invitations/new', invObj, HEROKU.CONFIG)
+				$http.post(HEROKU.URL + 'invitations', invObj, HEROKU.CONFIG)
 					.success( function (response){
 						console.log(response);
 					}

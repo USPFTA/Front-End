@@ -4,14 +4,15 @@
 
 	angular.module('FlagTag')
 
-	.controller('GameController', ['$scope', '$log', '$timeout', '$rootScope', 'UserFactory', 'uiGmapGoogleMapApi', 'GameFactory',
-		function ($scope, $log, $timeout, $rootScope, UserFactory, uiGmapGoogleMapApi, GameFactory){
+	.controller('GameController', ['$scope', '$log', '$timeout', '$rootScope', 'UserFactory', 'uiGmapGoogleMapApi', 'GameFactory', '$location',
+		function ($scope, $log, $timeout, $rootScope, UserFactory, uiGmapGoogleMapApi, GameFactory, $location){
 
 			//Display Your Email
 			var user = UserFactory.user();
 			if(user){
 				console.log(user.authentication_token);
 				$scope.userProfile = user.email;
+				$scope.createrId = user.id;
 			}
 
 			// Check Authentication
@@ -19,7 +20,7 @@
 
 			// Create a Game
 			$scope.createGame = function(gameInfo){
-				// GameFactory.create({ game: gameInfo });
+				GameFactory.create({ game: gameInfo });
 			};
 
 			// Create Map
@@ -91,21 +92,21 @@
       });
     
 
-    	//Change Class to note Invite
-    	$scope.changeClass = function (id){
+    	//Change Class to note Invite & Send Invite to User
+    	$scope.inviteUser = function (invObj){
     		$(event.target).toggleClass('active');
+    		console.log($scope.createrId);    		
     		console.log($scope.userCol);
-    		// GameFactory.invite(id)
-    			// .success( function (){
-    				for(var i = 0; i < $scope.userCol.length; i++){
-    					if ($scope.userCol[i].id === id){
-								$scope.userCol.filter(i, 1);
-								console.log('here');
-								return this;
-    					}
-    				}
-    			// });
+    		console.log(invObj);
+    		GameFactory.invite({ inviter_id: $scope.createrId, invited_id: invObj, game_id: 14 });
     	};
+
+
+
+
+    	$rootScope.$on('game:created', function (){
+				$location.path('/game/invite');
+			});
 	
 		}
 

@@ -108,12 +108,16 @@ button:hover{
   }
 }
 .invite{
-  width: 50%;
+  width: 75%;
+  margin: 0 auto;
   h1{
     text-align: center;
   }
   h3{
     text-align: center;
+  }
+  h4{
+    padding: 0.5rem;
   }
   li{
     border-left: 1rem solid green;
@@ -122,11 +126,16 @@ button:hover{
     margin: 1rem;
     border-bottom: 0.1rem solid lightgray;
   }
+  button{
+    margin-left: 45%;
+  }
   li:hover{
     cursor: pointer;
     h4{
       color: white;
       background-color: #0493D9;
+      padding: 0.5rem;
+      border-radius: 1.5rem;
     }
   }
   small{
@@ -137,6 +146,8 @@ button:hover{
 .active{
   background-color: #0493D9;
   color: white;
+  border-radius: 1.5rem;
+  padding: 0.5rem;
 }
 .active:after{
   content: " . . . . . . . . . . . . . . . . Invited!";
