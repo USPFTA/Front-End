@@ -123,7 +123,7 @@
     	};
 
     	// If we are on a game page, with an ID... grab the Game
-    	if ($routeParams.id) {
+    	if ($routeParams.id && $location.path().indexOf('/game/invite/') === -1) {
     		$scope.grabGame();
     	}
     	
