@@ -107,3 +107,39 @@ button:hover{
 
   }
 }
+.invite{
+  width: 50%;
+  h1{
+    text-align: center;
+  }
+  h3{
+    text-align: center;
+  }
+  li{
+    border-left: 1rem solid green;
+    list-style: none;
+    padding: 0.5rem;
+    margin: 1rem;
+    border-bottom: 0.1rem solid lightgray;
+  }
+  li:hover{
+    cursor: pointer;
+    h4{
+      color: white;
+      background-color: #0493D9;
+    }
+  }
+  small{
+    float:right;
+    margin-top: -1rem;
+  }
+}
+.active{
+  background-color: #0493D9;
+  color: white;
+}
+.active:after{
+  content: " . . . . . . . . . . . . . . . . Invited!";
+  font-style: italic;
+  font-size: 0.9rem;
+}

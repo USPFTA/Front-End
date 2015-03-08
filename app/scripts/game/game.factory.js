@@ -30,8 +30,20 @@
 				});
 			};
 
+			//Invite Users From List
+			var inviteUsers = function (invObj){
+				$http.post(HEROKU.URL + 'invitations/new', invObj, HEROKU.CONFIG)
+					.success( function (response){
+						console.log(response);
+					}
+				);
+			};
+
+
 			return{
-				grabUsers: getUsers
+				grabUsers: getUsers,
+				create: createGame,
+				invite: inviteUsers
 			};
 
 		}

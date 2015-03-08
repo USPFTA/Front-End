@@ -82,11 +82,31 @@
 	      }
       ];
 
+      // circle.bindTo('center', marker, 'position');
+
+
       // Get all Available Users
       GameFactory.grabUsers().success(function (data){
       	$scope.userCol = data.players;
       });
-			
+    
+
+    	//Change Class to note Invite
+    	$scope.changeClass = function (id){
+    		$(event.target).toggleClass('active');
+    		console.log($scope.userCol);
+    		// GameFactory.invite(id)
+    			// .success( function (){
+    				for(var i = 0; i < $scope.userCol.length; i++){
+    					if ($scope.userCol[i].id === id){
+								$scope.userCol.filter(i, 1);
+								console.log('here');
+								return this;
+    					}
+    				}
+    			// });
+    	};
+	
 		}
 
 	]);
