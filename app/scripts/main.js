@@ -34,7 +34,7 @@
 			controller: 'GameController'
 		})
 
-		.when('/game', {
+		.when('/game/:id', {
 			templateUrl: 'scripts/game/game.tpl.html',
 			controller: 'GameController'
 		})
@@ -44,7 +44,7 @@
 			controller: 'GameController'
 		})
 
-		.when('/game/invite', {
+		.when('/game/invite/:id', {
 			templateUrl: 'scripts/game/invite.tpl.html',
 			controller: 'GameController'
 		})

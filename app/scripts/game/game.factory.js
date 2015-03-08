@@ -16,7 +16,7 @@
 					.success( function (response){
 						console.log(response.game.id);
 						$rootScope.gameId = response.game.id;
-						$rootScope.$broadcast('game:created');
+						$rootScope.$broadcast('game:created', response.game.id);
 					}
 				);
 			};
@@ -41,13 +41,13 @@
 				);
 			};
 
-			var grabGame = function (gameObj){
+			var grabGame = function (gameId){
 				return $http({
 					headers: HEROKU.CONFIG.headers,
-					url: HEROKU.URL + 'games/' + 11 + '/admin',
+					url: HEROKU.URL + 'games/' + gameId + '/admin',
 					method: 'GET'
 				}).success( function (data){
-					$rootScope.$broadcast('game:got');
+					$rootScope.$broadcast('game:got', gameId);
 				});
 			};
 

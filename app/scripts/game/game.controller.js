@@ -4,8 +4,8 @@
 
 	angular.module('FlagTag')
 
-	.controller('GameController', ['$scope', '$log', '$timeout', '$rootScope', 'UserFactory', 'uiGmapGoogleMapApi', 'GameFactory', '$location',
-		function ($scope, $log, $timeout, $rootScope, UserFactory, uiGmapGoogleMapApi, GameFactory, $location){
+	.controller('GameController', ['$scope', '$log', '$timeout', '$rootScope', 'UserFactory', 'uiGmapGoogleMapApi', 'GameFactory', '$location', '$routeParams',
+		function ($scope, $log, $timeout, $rootScope, UserFactory, uiGmapGoogleMapApi, GameFactory, $location, $routeParams){
 
 			//Display Your Email
 			var user = UserFactory.user();
@@ -21,10 +21,11 @@
 			// Create a Game
 			$scope.createGame = function(gameInfo){
 				GameFactory.create({ game: gameInfo });
+				console.log(gameInfo);
 			};
 
 			// Create Map
-			$scope.map = { center: { latitude: 33.75, longitude: -84.4 }, zoom: 13 };
+			$scope.map = { center: { latitude: 33.75, longitude: -84.4 }, zoom: 14 };
 
 			// Create Marker
 			var marker = $scope.marker = {
@@ -98,39 +99,42 @@
     		console.log($scope.createrId);    		
     		console.log($scope.userCol);
     		console.log(invObj);
-    		GameFactory.invite({ inviter_id: $scope.createrId, invited_id: invObj, game_id: 14 });
+    		GameFactory.invite({ inviter_id: $scope.createrId, invited_id: invObj, game_id: $routeParams.id });
     	};
 
     	// Grab Current Game 
-    	// $scope.grabGame = function (gameObj){
-    		GameFactory.grab()
+    	$scope.grabGame = function (gameObj){
+    		GameFactory.grab($routeParams.id)
     			.success( function (data){
-    				console.log(data);
+    				// console.log(data);
     				$scope.currentCol = data.users;
-    				console.log($scope.currentCol);
+    				// console.log($scope.currentCol);
     				$scope.scoreCol = data.players;
     				$scope.flagCol = data.flags;
     				console.log($scope.flagCol);
     				$scope.currentGame = data.game;
     				console.log($scope.currentGame);
-    				// $scope.gameLat = parseFloat(data.game.center_lat);
-    				// $scope.gameLon = parseFloat(data.game.center_long);
-    				console.log($scope.gameLat);
 
     				$scope.gameLatLong = { latitude: parseFloat(data.game.center_lat), longitude: parseFloat(data.game.center_long) };
     				$scope.markerCoors = { latitude: parseFloat(data.game.center_lat), longitude: parseFloat(data.game.center_long) };
     				$scope.circleCoors = { latitude: parseFloat(data.game.center_lat), longitude: parseFloat(data.game.center_long) };
     			}
     		);
-    	// };
+    	};
+
+    	// If we are on a game page, with an ID... grab the Game
+    	if ($routeParams.id) {
+    		$scope.grabGame();
+    	}
+    	
 
 
-    	$rootScope.$on('game:created', function (){
-				$location.path('/game/invite');
+    	$rootScope.$on('game:created', function (event, gameId){
+				$location.path('/game/invite/' + gameId);
 			});
 
-			$rootScope.$on('game:got', function (){
-				$location.path('/game');
+			$rootScope.$on('game:got', function (event, gameId){
+				$location.path('/game/' + gameId);
 			});
 	
 		}
