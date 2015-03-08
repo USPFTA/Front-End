@@ -1,0 +1,46 @@
+<!doctype html>
+<html class="no-js" ng-app="FlagTag">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>FlagTag</title>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link rel="stylesheet" href="styles/vendor.css">
+
+    <link rel="stylesheet" href="styles/main.css">
+
+    <script src="scripts/vendor/modernizr.js"></script>
+
+  </head>
+  <body>
+
+    <nav class="top-bar" data-topbar role="navigation" ng-controller="NavController">
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="#/">United States Professional Flag Tag Association</a></h1>
+        </li>
+      </ul>
+
+      <section class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+          <li ng-hide="loggedin"><a href="#/login">Login</a></li>
+          <li ng-hide="loggedin"><a href="#/register">Register</a></li>
+          <li ng-show="loggedin"><a ng-click="logout()" href="#/">Logout</a></li>
+        </ul>
+        <ul class="left">
+          <li ng-show="loggedin"><a href="#/profile">Profile</a></li>
+        </ul>
+      </section>
+    </nav>
+
+    <div class="container" ng-view></div>
+
+
+    <script src="scripts/vendor.js"></script>
+
+        <script src="scripts/main.js"></script>
+</body>
+</html>
