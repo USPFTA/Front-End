@@ -101,11 +101,19 @@
     		GameFactory.invite({ inviter_id: $scope.createrId, invited_id: invObj, game_id: 14 });
     	};
 
-
+    	// Grab Current Game 
+    	$scope.grabGame = function (gameObj){
+    		GameFactory.grab(gameObj);
+    		console.log(gameObj);
+    	};
 
 
     	$rootScope.$on('game:created', function (){
 				$location.path('/game/invite');
+			});
+
+			$rootScope.$on('game:got', function (){
+				$location.path('/game');
 			});
 	
 		}

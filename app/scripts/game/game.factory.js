@@ -41,11 +41,23 @@
 				);
 			};
 
+			var grabGame = function (gameObj){
+				return $http({
+					headers: HEROKU.CONFIG.headers,
+					url: HEROKU.URL + 'games/' + 11 + '/admin',
+					method: 'GET'
+				}).success( function (data){
+					console.log(data);
+					$rootScope.$broadcast('game:got');
+				});
+			};
+
 
 			return{
 				grabUsers: getUsers,
 				create: createGame,
-				invite: inviteUsers
+				invite: inviteUsers,
+				grab: grabGame
 			};
 
 		}
