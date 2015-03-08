@@ -1,0 +1,13 @@
+<div class="invite">
+	<h1>Invite Up To 10 Players!</h1>
+	<h3>Just click to invite</h3>
+	<ul>
+		<li ng-repeat="user in userCol" class="{{ user.id }}" ng-click="inviteUser(user.id);">
+			<div class="user">
+				<h4>{{ user.email }}</h4>
+				<small>{{ user.id }}</small>
+			</div>
+		</li>
+	</ul>
+	<button ng-click="grabGame()">Let's Go!</button></a>
+</div>

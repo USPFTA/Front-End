@@ -1,0 +1,78 @@
+<div class="createGame">
+	<h1>Where do you want to play?</h1>
+	<div class="map">
+		<ui-gmap-google-map center='map.center' zoom='map.zoom'>
+			<ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
+      </ui-gmap-marker>
+      <ui-gmap-circle ng-repeat="c in circles track by c.id" center="c.center" stroke="c.stroke" fill="c.fill" radius="c.radius" visible="c.visible" geodesic="c.geodesic" editable="c.editable" draggable="c.draggable" clickable="c.clickable" control="c.control">
+      </ui-gmap-circle>
+		</ui-gmap-google-map>
+	</div>
+	<form ng-submit="createGame(game)">
+		<div class="row collapse">
+	    <div class="small-3 large-2 columns">
+	      <span class="prefix">Name Game</span>
+	    </div>
+	    <div class="small-9 large-10 columns">
+	      <input ng-model="game.name" type="text" placeholder="Wicked Flag Tag Game">
+	    </div>
+  	</div>
+		<div class="row collapse">
+	    <div class="small-3 large-2 columns">
+	      <span class="prefix">Select Latitude</span>
+	    </div>
+	    <div class="small-9 large-10 columns">
+	      <input ng-model="marker.coords.latitude" type="text" ng-bind="marker.coords.latitude">
+	    </div>
+  	</div>
+  	<div class="row collapse">
+	    <div class="small-3 large-2 columns">
+	      <span class="prefix">Confirm Latitude</span>
+	    </div>
+	    <div class="small-9 large-10 columns">
+	      <input ng-model="game.center_lat" type="text">
+	    </div>
+  	</div>
+		<div class="row collapse">
+	    <div class="small-3 large-2 columns">
+	      <span class="prefix">Select Longitude</span>
+	    </div>
+	    <div class="small-9 large-10 columns">
+	      <input ng-model="marker.coords.longitude" type="text" ng-bind="marker.coords.longitude"> 
+	    </div>
+  	</div>
+  	<div class="row collapse">
+	    <div class="small-3 large-2 columns">
+	      <span class="prefix">Confirm Longitude</span>
+	    </div>
+	    <div class="small-9 large-10 columns">
+	      <input ng-model="game.center_long" type="text">
+	    </div>
+  	</div>
+  	<div class="row collapse">
+	    <div class="small-3 large-2 columns">
+	      <span class="prefix">Boundary Radius</span>
+	    </div>
+	    <div class="small-9 large-10 columns">
+	      <input ng-model="game.radius" type="text" placeholder="number in miles ex: 1">
+	    </div>
+  	</div>
+  	<div class="row collapse">
+	    <div class="small-3 large-2 columns">
+	      <span class="prefix">Starting Time</span>
+	    </div>
+	    <div class="small-9 large-10 columns">
+	      <input ng-model="game.starts_at" type="text" placeholder="ex: 5:00pm">
+	    </div>
+  	</div>
+  	<div class="row collapse">
+	    <div class="small-3 large-2 columns">
+	      <span class="prefix">Time Limit</span>
+	    </div>
+	    <div class="small-9 large-10 columns">
+	      <input ng-model="game.duration" type="text" placeholder="Only a number here (in hours) ex: 2">
+	    </div>
+  	</div>
+  	<button>Play!</button></a>
+	</form>
+</div>
