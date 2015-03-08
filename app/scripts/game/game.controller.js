@@ -113,7 +113,13 @@
     				console.log($scope.flagCol);
     				$scope.currentGame = data.game;
     				console.log($scope.currentGame);
+    				// $scope.gameLat = parseFloat(data.game.center_lat);
+    				// $scope.gameLon = parseFloat(data.game.center_long);
+    				console.log($scope.gameLat);
 
+    				$scope.gameLatLong = { latitude: parseFloat(data.game.center_lat), longitude: parseFloat(data.game.center_long) };
+    				$scope.markerCoors = { latitude: parseFloat(data.game.center_lat), longitude: parseFloat(data.game.center_long) };
+    				$scope.circleCoors = { latitude: parseFloat(data.game.center_lat), longitude: parseFloat(data.game.center_long) };
     			}
     		);
     	// };
