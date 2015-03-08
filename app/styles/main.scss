@@ -154,3 +154,41 @@ button:hover{
   font-style: italic;
   font-size: 0.9rem;
 }
+// Game Map
+.GameMap{
+  width: 75%;
+  border: 0.3rem double green;
+  margin: 0 auto;
+  margin-top: 3rem
+}
+.currentPlayers{
+  h1{
+    text-align: center;
+  }
+  ul{
+    margin: 1% 12% 2% 12%;
+  }
+  li{
+    list-style: none;
+    padding: 0.5rem;
+    margin: 1rem;
+  }
+}
+.user{
+  h4{
+    border-bottom: 0.1rem solid lightgray;
+    margin-bottom: 1rem;
+    border-left: 1rem solid green;
+    padding: 1rem;
+  }
+}
+.scores{
+  float:right;
+  margin-top:-16rem;
+}
+h5{
+  text-align:right;
+  padding: 1.4rem;
+  font-style: italic;
+  color: green;
+}

@@ -102,10 +102,21 @@
     	};
 
     	// Grab Current Game 
-    	$scope.grabGame = function (gameObj){
-    		GameFactory.grab(gameObj);
-    		console.log(gameObj);
-    	};
+    	// $scope.grabGame = function (gameObj){
+    		GameFactory.grab()
+    			.success( function (data){
+    				console.log(data);
+    				$scope.currentCol = data.users;
+    				console.log($scope.currentCol);
+    				$scope.scoreCol = data.players;
+    				$scope.flagCol = data.flags;
+    				console.log($scope.flagCol);
+    				$scope.currentGame = data.game;
+    				console.log($scope.currentGame);
+
+    			}
+    		);
+    	// };
 
 
     	$rootScope.$on('game:created', function (){

@@ -47,7 +47,6 @@
 					url: HEROKU.URL + 'games/' + 11 + '/admin',
 					method: 'GET'
 				}).success( function (data){
-					console.log(data);
 					$rootScope.$broadcast('game:got');
 				});
 			};
